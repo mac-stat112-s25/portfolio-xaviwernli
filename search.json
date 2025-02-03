@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "COMP/STAT112 Notebook",
+    "section": "",
+    "text": "Welcome\nWelcome to my online portfolio for COMP/STAT112 course taken at Macalester College. Please, use the side bar on the left for navigation.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "bw/bw-uni.html",
+    "href": "bw/bw-uni.html",
+    "title": "1  Univariate Viz",
+    "section": "",
+    "text": "Use this file to generate a professional looking univariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "crumbs": [
+      "Best Work",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Univariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "bw/bw-bi.html",
+    "href": "bw/bw-bi.html",
+    "title": "2  Bivariate Viz",
+    "section": "",
+    "text": "Use this file to generate a professional looking bivariate visualization. The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.",
+    "crumbs": [
+      "Best Work",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "bw/bw-tri.html",
+    "href": "bw/bw-tri.html",
+    "title": "3  Trivariate Viz",
+    "section": "",
+    "text": "Use this file to generate a professional looking trivariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "crumbs": [
+      "Best Work",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Trivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "bw/bw-quad.html",
+    "href": "bw/bw-quad.html",
+    "title": "4  Quadvariate Viz",
+    "section": "",
+    "text": "Use this file to generate a professional looking quadvariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "crumbs": [
+      "Best Work",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quadvariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "bw/bw-spatial.html",
+    "href": "bw/bw-spatial.html",
+    "title": "5  Spatial Viz",
+    "section": "",
+    "text": "Use this file to generate a professional looking spatial visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "crumbs": [
+      "Best Work",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Spatial Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-uni.html",
+    "href": "ica/ica-uni.html",
+    "title": "\n6  Univariate Viz\n",
+    "section": "",
+    "text": "6.1 Exercises\n# Import data\nhikes &lt;- read.csv(\"https://mac-stat.github.io/data/high_peaks.csv\")",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Univariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-uni.html#exercises",
+    "href": "ica/ica-uni.html#exercises",
+    "title": "\n6  Univariate Viz\n",
+    "section": "",
+    "text": "Exercise 1: Research Questions\nLet’s dig into the hikes data, starting with the elevation and difficulty ratings of the hikes:\n\nhead(hikes)\n\n             peak elevation difficulty ascent length time    rating\n1     Mt. Marcy        5344          5   3166   14.8 10.0  moderate\n2 Algonquin Peak       5114          5   2936    9.6  9.0  moderate\n3   Mt. Haystack       4960          7   3570   17.8 12.0 difficult\n4   Mt. Skylight       4926          7   4265   17.9 15.0 difficult\n5 Whiteface Mtn.       4867          4   2535   10.4  8.5      easy\n6       Dix Mtn.       4857          5   2800   13.2 10.0  moderate\n\n\n\nWhat features would we like a visualization of the categorical difficulty rating variable to capture?\n\n\nIt should capture that the high the number, the higher the difficulty. Also, that the difficulty is correlated to the elevation and milage of the hike.*\n\n\nWhat about a visualization of the quantitative elevation variable?\n\n\nThat this is very high and higher elevation hikes are very difficult.\nExercise 2: Load tidyverse\nWe’ll address the above questions using ggplot tools. Try running the following chunk and simply take note of the error message – this is one you’ll get a lot!\n\n# Use the ggplot function\nggplot(hikes, aes(x = rating))\n\nIn order to use ggplot tools, we have to first load the tidyverse package in which they live. Mainly, we’ve installed the package but need to tell R when we want to use it. Run the chunk below to load the library. You’ll need to do this within any .qmd file that uses ggplot().\n\n# Load the package\nlibrary(tidyverse)\n\nExercise 3: Bar Chart of Ratings - Part 1\nConsider some specific research questions about the difficulty rating of the hikes:\n\nHow many hikes fall into each category?\nAre the hikes evenly distributed among these categories, or are some more common than others?\n\nAll of these questions can be answered with: (1) a bar chart; of (2) the categorical data recorded in the rating column. First, set up the plotting frame:\n\nggplot(hikes, aes(x = rating))\n\nThink about:\n\nWhat did this do? What do you observe?\nthis created a frame where data can be place in *\nWhat, in general, is the first argument of the ggplot() function?\nthe name of the data file *\nWhat is the purpose of writing x = rating?\nso the hikes are placed in the frame in order and not randomly. *\nWhat do you think aes stands for?!?\naxis? Or something to do with the y axis? *\nExercise 4: Bar Chart of Ratings - Part 2\nNow let’s add a geometric layer to the frame / canvas, and start customizing the plot’s theme. To this end, try each chunk below, one by one. In each chunk, make a comment about how both the code and the corresponding plot both changed.\nNOTE:\n\nPay attention to the general code properties and structure, not memorization.\nNot all of these are “good” plots. We’re just exploring ggplot.\n\n\n# This adds the data to the frame, in the form of a bar graph.\nggplot(hikes, aes(x = rating)) +\n  geom_bar()\n\n\n# This named the y axis, and capitalized the \"R\" in rating.\nggplot(hikes, aes(x = rating)) +\n  geom_bar() +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n# This made the graph blue.\nggplot(hikes, aes(x = rating)) +\n  geom_bar(fill = \"blue\") +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n# This added an orange outline to the graph.\nggplot(hikes, aes(x = rating)) +\n  geom_bar(color = \"orange\", fill = \"blue\") +\n  labs(x = \"Rating\", y = \"Number of hikes\")\n\n\n# This changed the background to white.\nggplot(hikes, aes(x = rating)) +\n  geom_bar(color = \"orange\", fill = \"blue\")  +\n  labs(x = \"Rating\", y = \"Number of hikes\") +\n  theme_minimal()\n\nExercise 5: Bar Chart Follow-up\nPart a\nReflect on the ggplot() code.\n\nWhat’s the purpose of the +? When do we use it?\nit adds another component of the graph, we use it when we want to add more components to the graph. *\nWe added the bars using geom_bar()? Why “geom”?\nthat is the function name which tells R we are graphing something. *\nWhat does labs() stand for?\nThat names the x and y axis. *\nWhat’s the difference between color and fill?\ncolor is the outline, fill in the color of the inside of the graph.\nPart b\nIn general, bar charts allow us to examine the following properties of a categorical variable:\n\n\nobserved categories: What categories did we observe?\nthe difficulty of the hikes, and the number of hikes per difficulty category. *\n\nvariability between categories: Are observations evenly spread out among the categories, or are some categories more common than others?\nmore than 50% of the hikes are moderate, so there is a lot of variability.\n\nWe must then translate this information into the context of our analysis, here hikes in the Adirondacks. Summarize below what you learned from the bar chart, in context.\n\nBy adding a “+” sign I can add components to the graph such as themes, and layers. I can also change the name of the axes, and add color to the bar graph.\nPart c\nIs there anything you don’t like about this barplot? For example: check out the x-axis again.\n\nI don’t like how close some of the labels for the x-axis and the bar labels are. *\nExercise 6: Sad Bar Chart\nLet’s now consider some research questions related to the quantitative elevation variable:\n\nAmong the hikes, what’s the range of elevation and how are the hikes distributed within this range (e.g. evenly, in clumps, “normally”)?\nWhat’s a typical elevation?\nAre there any outliers, i.e. hikes that have unusually high or low elevations?\n\nHere:\n\nConstruct a bar chart of the quantitative elevation variable.\nExplain why this might not be an effective visualization for this and other quantitative variables. (What questions does / doesn’t it help answer?)\nit is difficult to read, and it’s difficult to view trends in the data. *\n\n\nggplot(hikes, aes(x = elevation)) +\n  geom_bar(color = \"orange\", fill = \"blue\")  +\n  labs(x = \"Elevation\", y = \"Number of hikes\") +\n  theme_minimal()\n\n\n\n\n\n\n\nExercise 7: A Histogram of Elevation\nQuantitative variables require different viz than categorical variables. Especially when there are many possible outcomes of the quantitative variable. It’s typically insufficient to simply count up the number of times we’ve observed a particular outcome as the bar graph did above. It gives us a sense of ranges and typical outcomes, but not a good sense of how the observations are distributed across this range. We’ll explore two methods for graphing quantitative variables: histograms and density plots.\nHistograms are constructed by (1) dividing up the observed range of the variable into ‘bins’ of equal width; and (2) counting up the number of cases that fall into each bin. Check out the example below:\n\nPart a\nLet’s dig into some details.\n\nHow many hikes have an elevation between 4500 and 4700 feet?\n6 *\nHow many total hikes have an elevation of at least 5100 feet?\n2 *\nPart b\nNow the bigger picture. In general, histograms allow us to examine the following properties of a quantitative variable:\n\n\ntypical outcome: Where’s the center of the data points? What’s typical?\n\nvariability & range: How spread out are the outcomes? What are the max and min outcomes?\n\nshape: How are values distributed along the observed range? Is the distribution symmetric, right-skewed, left-skewed, bi-modal, or uniform (flat)?\n\noutliers: Are there any outliers, i.e. outcomes that are unusually large/small?\n\nWe must then translate this information into the context of our analysis, here hikes in the Adirondacks. Addressing each of the features in the above list, summarize below what you learned from the histogram, in context.\n\nHistograms help put together raw data so it can be easily viewed and understood. *\nExercise 8: Building Histograms - Part 1\n2-MINUTE CHALLENGE: Thinking of the bar chart code, try to intuit what line you can tack on to the below frame of elevation to add a histogram layer. Don’t forget a +. If it doesn’t come to you within 2 minutes, no problem – all will be revealed in the next exercise.\n\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram()\n\nExercise 9: Building Histograms - Part 2\nLet’s build some histograms. Try each chunk below, one by one. In each chunk, make a comment about how both the code and the corresponding plot both changed.\n\n# it is now a histogram!\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram()\n\n\n# the color was changed to white, which gives an outline to the histograms, and it is easier to see the different bars.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\") \n\n\n# the fill color was changed to blue, making everything blue.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", fill = \"blue\") \n\n\n# no more fill, x and y axis have been labeled, binwidth has been set. This gives more context to the graph and makes it easier to read.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\") +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n# binwidth was set to 1000, which is too big to view anything important.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 1000) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n# binwidth was reduced to 5, it is very difficult to read this graph.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 5) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\n# bindwidth was set to 200, trends in the graph can now be seen.\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(color = \"white\", binwidth = 200) +\n  labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\nExercise 10: Histogram Follow-up\n\nWhat function added the histogram layer / geometry?\nto help the viewer understand the data *\nWhat’s the difference between color and fill?\ncolor is the outline, fill in the inside color *\nWhy does adding color = \"white\" improve the visualization?\nit adds contrast and helps differentiate the bars. *\nWhat did binwidth do?\nthat changes the width of each bar *\nWhy does the histogram become ineffective if the binwidth is too big (e.g. 1000 feet)?\nnot enough data variation is shown *\nWhy does the histogram become ineffective if the binwidth is too small (e.g. 5 feet)?\nit is difficult to read the graph *\nExercise 11: Density Plots\nDensity plots are essentially smooth versions of the histogram. Instead of sorting observations into discrete bins, the “density” of observations is calculated across the entire range of outcomes. The greater the number of observations, the greater the density! The density is then scaled so that the area under the density curve always equals 1 and the area under any fraction of the curve represents the fraction of cases that lie in that range.\nCheck out a density plot of elevation. Notice that the y-axis (density) has no contextual interpretation – it’s a relative measure. The higher the density, the more common are elevations in that range.\n\nggplot(hikes, aes(x = elevation)) +\n  geom_density()\n\nQuestions\n\n\nINTUITION CHECK: Before tweaking the code and thinking back to geom_bar() and geom_histogram(), how do you anticipate the following code will change the plot?\n\ngeom_density(color = \"blue\")\nthis will change the line to be blue *\ngeom_density(fill = \"orange\")\nthis will make the area under the graph blue *\n\n\nTRY IT! Test out those lines in the chunk below. Was your intuition correct?\nit was! *\n\n\nggplot(hikes, aes(x = elevation)) +\n  geom_density(color = \"blue\", fill = \"orange\")\n\n\nExamine the density plot. How does it compare to the histogram? What does it tell you about the typical elevation, variability / range in elevations, and shape of the distribution of elevations within this range?\nit shows that the distribution of elevation is skewed right, with the highest density of hikes having 4200ft elevation gain. *\nExercise 12: Density Plots vs Histograms\nThe histogram and density plot both allow us to visualize the behavior of a quantitative variable: typical outcome, variability / range, shape, and outliers. What are the pros/cons of each? What do you like/not like about each? * histograms are more accurate, and are easier to read if the viewer would like to make accurate estimates (such as the average elevation of a hike). The density plot is easier to read for trends, as the lines are continuous.\nExercise 13: Code = communication\nWe obviously won’t be done until we talk about communication. All code above has a similar general structure (where the details can change):\n\nggplot(___, aes(x = ___)) + \n  geom___(color = \"___\", fill = \"___\") + \n  labs(x = \"___\", y = \"___\")\n\n\nThough not necessary to the code working, it’s common, good practice to indent or tab the lines of code after the first line (counterexample below). Why?\n\n\n# YUCK\nggplot(hikes, aes(x = elevation)) +\ngeom_histogram(color = \"white\", binwidth = 200) +\nlabs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\n\nThough not necessary to the code working, it’s common, good practice to put a line break after each + (counterexample below). Why?\nit makes it easier to read! Your brain can spend more time figuring out problems with the code if it doesn’t have to find where the section of the code begins and ends.\n\n\n# YUCK \nggplot(hikes, aes(x = elevation)) + geom_histogram(color = \"white\", binwidth = 200) + labs(x = \"Elevation (feet)\", y = \"Number of hikes\")\n\nExercise 14: Practice\nPart a\nPractice your viz skills to learn about some of the variables in one of the following datasets from the previous class:\n\n# Data on students in this class\nsurvey &lt;- read.csv(\"https://ajohns24.github.io/data/112/about_us_2024.csv\")\n\n# World Cup data\nworld_cup &lt;- read.csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-11-29/worldcups.csv\")\n\n\nhead(survey)\n\n      cafe_mac minutes_to_campus fave_temp       hangout\n1   Cheesecake                15        18 the mountains\n2 Cheese pizza                10        24       a beach\n3 udon noodles                 4        18 the mountains\n4    egg rolls                 7        10       a beach\n5       Tacos                  5        18 the mountains\n6        pasta                35         7 the mountains\n\n\n\nggplot(survey, aes(x = fave_temp)) +\n  geom_density(color = \"black\", fill = \"orange\") +\n  labs(x = \"Favorite Temperature (Celcius)\", y = \"Students\") +\n  theme_bw()\n\nPart b\nCheck out the RStudio Data Visualization cheat sheet to learn more features of ggplot.\n\n\n\n\n\n\nCheck → Commit → Push\n\n\n\nWhen done, don’t forgot to click Render Book and check the resulting HTML files. If happy, jump to GitHub Desktop and commit the changes with the message Finish activity 3 and push to GitHub. Wait few seconds, then visit your portfolio website and make sure the changes are there.",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Univariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-bi.html",
+    "href": "ica/ica-bi.html",
+    "title": "7  Bivariate Viz",
+    "section": "",
+    "text": "Use this file for practice with the bivariate viz in-class activity. Refer to the class website for details.",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Bivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-multi.html",
+    "href": "ica/ica-multi.html",
+    "title": "8  Mulivariate Viz",
+    "section": "",
+    "text": "Use this file for practice with the mulivariate viz in-class activity. Refer to the class website for details.",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mulivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-spatial.html",
+    "href": "ica/ica-spatial.html",
+    "title": "9  Spatial Viz",
+    "section": "",
+    "text": "Use this file for practice with the spatial viz in-class activity. Refer to the class website for details.",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Spatial Viz</span>"
+    ]
+  }
+]
