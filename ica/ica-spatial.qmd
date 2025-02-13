@@ -641,7 +641,7 @@ Construct county-level maps of `median_rent` and `median_age`.
 ```{r}
 ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
   geom_map(map = county_map) +
-  scale_fill_gradientn(name = "Median Rent", colors = terrain.colors(10)) +
+  scale_fill_viridis(option = "magma", direction = -1) +
   expand_limits(x = county_map$long, y = county_map$lat) +
   theme_map() +
   theme(legend.position = "right") + 
