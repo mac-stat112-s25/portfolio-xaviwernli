@@ -12,9 +12,9 @@
   {
     "objectID": "bw/bw-uni.html",
     "href": "bw/bw-uni.html",
-    "title": "1  Univariate Viz",
+    "title": "\n1  Univariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking univariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "text": "Use this file to generate a professional looking univariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nggplot(elections, aes(x = winner_16, fill = winner_16)) +\n  geom_bar() +\n  scale_fill_manual(values = c(\"repub\" = \"red\", \"dem\" = \"blue\")) +\n  labs(x = \"Political Party\",\n       y = \"Counties Won\",\n       title = \"Counties Won per Party in the 2016 Election\",\n       fill = \"Political Party\")",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Univariate Viz</span>"
@@ -23,9 +23,9 @@
   {
     "objectID": "bw/bw-bi.html",
     "href": "bw/bw-bi.html",
-    "title": "2  Bivariate Viz",
+    "title": "\n2  Bivariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking bivariate visualization. The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.",
+    "text": "Use this file to generate a professional looking bivariate visualization. The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(x = \"2016\",\n       y = \"2020\",\n       title = \"Republican Margins of Victory\",\n       caption = \"Point Percentages per County, 2016 and 2020\")\n\n`geom_smooth()` using formula = 'y ~ x'",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bivariate Viz</span>"
@@ -34,9 +34,9 @@
   {
     "objectID": "bw/bw-tri.html",
     "href": "bw/bw-tri.html",
-    "title": "3  Trivariate Viz",
+    "title": "\n3  Trivariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking trivariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "text": "Use this file to generate a professional looking trivariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nggplot(elections, aes(y = repub_pct_20, x = repub_pct_16, color = historical)) +\n  geom_point(alpha = 0.3) +\n  scale_color_manual(values = c(\"red\" = \"red\", \"blue\" = \"blue\", \"purple\" = \"purple\")) +\n  labs(x = \"2016\",\n       y = \"2020\",\n       title = \"Republican Margins of Victory\",\n       caption = \"Point Percentages per County, 2016 and 2020\",\n       color = \"Historical Result\")",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Trivariate Viz</span>"
@@ -45,9 +45,9 @@
   {
     "objectID": "bw/bw-quad.html",
     "href": "bw/bw-quad.html",
-    "title": "4  Quadvariate Viz",
+    "title": "\n4  Quadvariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking quadvariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "text": "Use this file to generate a professional looking quadvariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nggplot(elections, aes(y = repub_pct_20, x = repub_pct_16, size = total_population, color = historical)) +\n  geom_point(alpha = 0.5) +\n  scale_color_manual(values = c(\"red\" = \"red\", \"blue\" = \"blue\", \"purple\" = \"purple\")) +\n  scale_size_area() +\n  labs(x = \"2016\",\n       y = \"2020\",\n       title = \"Republican Margins of Victory\",\n       caption = \"Point Percentages per County, 2016 and 2020\",\n       color = \"Historical Result\",\n       size = \"County Population\")",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quadvariate Viz</span>"
@@ -56,9 +56,9 @@
   {
     "objectID": "bw/bw-spatial.html",
     "href": "bw/bw-spatial.html",
-    "title": "5  Spatial Viz",
+    "title": "\n5  Spatial Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking spatial visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.",
+    "text": "Use this file to generate a professional looking spatial visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nlibrary(socviz)\ndata(county_map)\n\nlibrary(RColorBrewer)  # For the color scale\nlibrary(ggthemes) # For theme_map\nelections |&gt; \n  mutate(county_fips = as.character(county_fips)) |&gt; \n  mutate(county_fips = \n           ifelse(nchar(county_fips) == 4, paste0(\"0\", county_fips), county_fips)) |&gt; \n  ggplot(aes(map_id = county_fips, fill = cut(repub_pct_20, breaks = seq(0, 100, by = 10)))) +\n    geom_map(map = county_map) +\n    scale_fill_manual(values = rev(brewer.pal(10, \"RdBu\")), name = \"% Republican\") +\n    expand_limits(x = county_map$long, y = county_map$lat)  + \n    theme_map() +\n    theme(legend.position = \"right\") + \n    coord_equal()",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Spatial Viz</span>"
@@ -122,20 +122,53 @@
   {
     "objectID": "ica/ica-multi.html",
     "href": "ica/ica-multi.html",
-    "title": "8  Mulivariate Viz",
+    "title": "Multivariate Viz",
     "section": "",
-    "text": "Use this file for practice with the mulivariate viz in-class activity. Refer to the class website for details.",
+    "text": "8.1 Exercises (required)",
     "crumbs": [
       "In-class Activities",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Mulivariate Viz</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Multivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-multi.html#exercises-required",
+    "href": "ica/ica-multi.html#exercises-required",
+    "title": "Multivariate Viz",
+    "section": "",
+    "text": "The story\nThough far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state’s education system. The education dataset contains various education variables for each state:\n\n# Import and check out data\neducation &lt;- read.csv(\"https://mac-stat.github.io/data/sat.csv\")\nhead(education)\n\n       State expend ratio salary frac verbal math  sat  fracCat\n1    Alabama  4.405  17.2 31.144    8    491  538 1029   (0,15]\n2     Alaska  8.963  17.6 47.951   47    445  489  934 (45,100]\n3    Arizona  4.778  19.3 32.175   27    448  496  944  (15,45]\n4   Arkansas  4.459  17.1 28.934    6    482  523 1005   (0,15]\n5 California  4.992  24.0 41.078   45    417  485  902  (15,45]\n6   Colorado  5.443  18.4 34.571   29    462  518  980  (15,45]\n\n\nA codebook is provided by Danny Kaplan who also made these data accessible:\n\nExercise 1: SAT scores\nPart a\nConstruct a plot of how the average sat scores vary from state to state. (Just use 1 variable – sat not State!)\n\nlibrary(tidyverse)\nggplot(education, aes(x = sat)) +\n  geom_density()\n\n\n\n\n\n\n\nPart b\nSummarize your observations from the plot. Comment on the basics: range, typical outcomes, shape. (Any theories about what might explain this non-normal shape?)\n*It is bimodal, with a hump around 900 and a hump around 1025. This may have to do with the economic divide between rural states and more urbanized states.\nExercise 2: SAT Scores vs Per Pupil Spending & SAT Scores vs Salaries\nThe first question we’d like to answer is: Can the variability in sat scores from state to state be partially explained by how much a state spends on education, specifically its per pupil spending (expend) and typical teacher salary?\nPart a\n\n# Construct a plot of sat vs expend\n# Include a \"best fit linear regression model\" (HINT: method = \"lm\")\nggplot(education, aes(x = expend, y = sat)) +\n  geom_point()+\n  geom_smooth(method = \"lm\", se=F)\n\n\n\n\n\n\n\n\n# Construct a plot of sat vs salary\n# Include a \"best fit linear regression model\" (HINT: method = \"lm\")\nggplot(education, aes(x = salary, y = sat)) +\n  geom_smooth(method = \"lm\")\n\n\n\n\n\n\n\nPart b\nWhat are the relationship trends between SAT scores and spending? Is there anything that surprises you? They have a negative relationship, which is surprising. I expected that the more money there is, the higher SAT scores will be.\nExercise 3: SAT Scores vs Per Pupil Spending and Teacher Salaries\nConstruct one visualization of the relationship of sat with salary and expend. HINT: Start with just 2 variables and tweak that code to add the third variable. Try out a few things!\n\nggplot(education, aes(x = salary, y = sat, color = cut(expend, 2))) +\n  geom_point() +\n  geom_smooth(se = FALSE, method = \"lm\")\n\n\n\n\n\n\n\nExercise 4: Another way to Incorporate Scale\nIt can be tough to distinguish color scales and size scales for quantitative variables. Another option is to discretize a quantitative variable, or basically cut it up into categories.\nConstruct the plot below. Check out the code and think about what’s happening here. What happens if you change “2” to “3”?\n\nggplot(education, aes(y = sat, x = salary, color = cut(expend, 3))) + \n  geom_point() + \n  geom_smooth(se = FALSE, method = \"lm\")\n\nDescribe the trivariate relationship between sat, salary, and expend. As salary and expend increase, sat scores go down.\nExercise 5: Finally an Explanation\nIt’s strange that SAT scores seem to decrease with spending. But we’re leaving out an important variable from our analysis: the fraction of a state’s students that actually take the SAT. The fracCat variable indicates this fraction: low (under 15% take the SAT), medium (15-45% take the SAT), and high (at least 45% take the SAT).\nPart a\nBuild a univariate viz of fracCat to better understand how many states fall into each category.\n\nggplot(education, aes(x = fracCat)) +\n  geom_bar()\n\n\n\n\n\n\n\nPart b\nBuild 2 bivariate visualizations that demonstrate the relationship between sat and fracCat. What story does your graphic tell and why does this make contextual sense?\n\nggplot(education, aes(x = fracCat, y = sat)) +\n  geom_point()\n\n\n\n\n\n\n\nPart c\nMake a trivariate visualization that demonstrates the relationship of sat with expend AND fracCat. Highlight the differences in fracCat groups through color AND unique trend lines. What story does your graphic tell?\nDoes it still seem that SAT scores decrease as spending increases?\n\nggplot(education, aes(y = sat, x = expend)) + \n  geom_point() + \n  geom_smooth(se = FALSE, method = \"lm\") +\n  facet_wrap(~ fracCat)\n\n\n\n\n\n\n\nPart d\nPutting all of this together, explain this example of Simpson’s Paradox. That is, why did it appear that SAT scores decrease as spending increases even though the opposite is true? Because there was a missing variable!",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Multivariate Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-multi.html#exercises-optional",
+    "href": "ica/ica-multi.html#exercises-optional",
+    "title": "Multivariate Viz",
+    "section": "\n8.2 Exercises (optional)",
+    "text": "8.2 Exercises (optional)",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Multivariate Viz</span>"
     ]
   },
   {
     "objectID": "ica/ica-spatial.html",
     "href": "ica/ica-spatial.html",
-    "title": "9  Spatial Viz",
+    "title": "\n9  Spatial Viz\n",
     "section": "",
-    "text": "Use this file for practice with the spatial viz in-class activity. Refer to the class website for details.",
+    "text": "Part 1: Interactive points on a map with leaflet\nLeaflet is an open-source JavaScript library for creating maps. We can use it inside R through the leaflet package.\nThis uses a different plotting framework than ggplot2, but still has a tidyverse feel (which will become more clear as we learn other tidyverse tools!).\nThe general steps are as follows:",
+    "crumbs": [
+      "In-class Activities",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Spatial Viz</span>"
+    ]
+  },
+  {
+    "objectID": "ica/ica-spatial.html#solutions",
+    "href": "ica/ica-spatial.html#solutions",
+    "title": "\n9  Spatial Viz\n",
+    "section": "\n9.1 Solutions",
+    "text": "9.1 Solutions\n\nClick for Solutions\nExample 1\nBoth addresses used between 0 and 450 therms per month. There seem to be two types of months – those with lower use around 50 therms and those with higher use around 300/400 therms.\n\n# ggplot(energy, aes(x = therms, fill = address)) + \n#   geom_density(alpha = 0.5)\n\nExample 2\nEnergy use is seasonal, with higher usage in winter months. It seems that address a uses slightly more energy.\n\n# ggplot(energy, aes(y = therms, x = date, color = address)) + \n#   geom_point()\n# ggplot(energy, aes(y = therms, x = date, color = address)) + \n#   geom_line()\n\nExample 3\nAt both addresses, typical energy use increased after renovations.\n\n# ggplot(energy, aes(y = therms, x = renovated)) + \n#   geom_boxplot() + \n#   facet_wrap(~ address)\n# \n# # A density plot isn't very helpful for comparing typical therms in this example!\n# ggplot(energy, aes(x = therms, fill = renovated)) + \n#   geom_density(alpha = 0.5) + \n#   facet_wrap(~ address)\n\nExample 4\nlurking variable = outdoor temperature (as reflected by hdd)\n\n# # It happened to be colder outside after renovations (higher hdd)\n# ggplot(energy, aes(y = hdd, x = renovated)) + \n#   geom_boxplot() + \n#   facet_wrap(~ address)\n# \n# # When controlling for outside temps (via hdd), energy use decreased post-renovation\n# ggplot(energy, aes(y = therms, x = hdd, color = renovated)) + \n#   geom_point(alpha = 0.5) + \n#   geom_smooth(method = \"lm\", se = FALSE) + \n#   facet_wrap(~ address)\n\nExample 5\nBUT this was explained by a confounding or omitted or lurking variable: hdd (outdoor temperature)\n\nAfter renovation…\n\nit happened to be colder…\nwhich then leads to higher energy use.\n\nThus, when controlling for outdoor temps, renovations led to decreased energy use.\nExercise 3: Your turn\n\nleaflet(data = starbucks_mn) |&gt; \n  addTiles() |&gt; \n  addMarkers()\n\nAssuming \"Longitude\" and \"Latitude\" are longitude and latitude, respectively\n\n\n\n\n\n\nExercise 3: A simple scatterplot\nIt would be nice to also have some actual reference maps of countries in the background.\n\nggplot(starbucks, aes(y = Latitude, x = Longitude)) + \n  geom_point(size = 0.5)\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\n\nExercise 6: A state and county-level map\nPart b\nAdjust the code below to make the plot! Remove the # to run it.\n\nggplot(midwest_boundaries) +\n  geom_sf() +\n  geom_point(\n    data = starbucks_midwest,\n    aes(x = Longitude, y = Latitude),\n    alpha = 0.7,\n    size = 0.2,\n    color = 'darkgreen'\n  ) +\n  theme_map()\n\n\n\n\n\n\n\nExercise 7: Contour maps\nEspecially when there are lots of point locations, and those locations start overlapping on a map, it can be tough to visualize areas of higher density. Consider the Starbucks locations in Canada, Mexico, and the US that we mapped earlier:\n\n# Point map (we made this earlier)\nggplot(cma_boundaries) + \n  geom_sf() + \n  geom_point(\n    data = starbucks_cma,\n    aes(x = Longitude, y = Latitude),\n    alpha = 0.3,\n    size = 0.2,\n    color = \"darkgreen\"\n  ) +\n  coord_sf(xlim = c(-179.14, -50), ylim = c(14.54, 83.11)) +\n  theme_map()\n\n\n\n\n\n\n\nNow check out the contour map.\n\n# What changed in the plot?\n# What changed in our code?!\nggplot(cma_boundaries) + \n  geom_sf() + \n  geom_density_2d(\n    data = starbucks_cma,\n    aes(x = Longitude, y = Latitude),\n    size = 0.2,\n    color = \"darkgreen\"\n  ) +\n  coord_sf(xlim = c(-179.14, -50), ylim = c(14.54, 83.11)) +\n  theme_map()\n\n\n\n\n\n\n\nExercises Part 3: Choropleth maps\nSpatial data isn’t always in the form of point locations! For example, recall the state and county-level data on presidential elections.\n\nelections_by_state &lt;-  read.csv(\"https://mac-stat.github.io/data/election_2020_by_state.csv\")\nelections_by_counties &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\n\nIn these datasets, we’re interested in the overall election outcome by region (state or county), not the specific geographic location of some observation. Let’s wrangle our data first.\nWe’ll focus on just a few variables of interest, and create a new variable (repub_20_categories) that discretizes the repub_pct_20 variable into increments of 5 percentage points (for states) or 10 percentage points (for counties):\n\n# Don't worry about the code!\n\nelections_by_state &lt;- elections_by_state |&gt; \n  filter(state_abbr != \"DC\") |&gt; \n  select(state_name, state_abbr, repub_pct_20) |&gt; \n  mutate(repub_20_categories = \n           cut(repub_pct_20, \n               breaks = seq(30, 70, by = 5), \n               labels = c(\"30-34\", \"35-39\", \"40-44\", \"45-49\",\n                          \"50-54\", \"55-59\", \"60-64\", \"65-70\"), \n               include.lowest = TRUE))\n\nelections_by_counties &lt;- elections_by_counties |&gt; \n  select(state_name, state_abbr, county_name, county_fips,\n          repub_pct_20, median_age, median_rent) |&gt; \n  mutate(repub_20_categories = \n           cut(repub_pct_20, \n               breaks = seq(0, 100, by = 10),\n               labels = c(\"0-9\", \"10-19\", \"20-29\", \"30-39\", \"40-49\",\n                          \"50-59\", \"60-69\", \"70-79\", \"80-89\", \"90-100\"),\n               include.lowest = TRUE))\n\n# Add 0's at the beginning of any fips_code that's fewer than 5 numbers long\n# Don't worry about the syntax\nelections_by_counties &lt;- elections_by_counties |&gt; \n  mutate(county_fips = as.character(county_fips)) |&gt; \n  mutate(county_fips = \n           ifelse(nchar(county_fips) == 4, paste0(\"0\", county_fips), county_fips))\n\nExercise 8: State-level choropleth maps\nPart d\ngeom_map()\nExercise 10: Play around!\n\n# ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +\n#   geom_map(map = county_map) +\n#   expand_limits(x = county_map$long, y = county_map$lat) +\n#   theme_map() +\n#   theme(legend.position = \"right\") + \n#   coord_equal() + \n#   scale_fill_gradientn(name = \"median rent\", colors = c(\"white\", \"lightgreen\", \"darkgreen\"))\n# \n# ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_age)) +\n#   geom_map(map = county_map) +\n#   expand_limits(x = county_map$long, y = county_map$lat) +\n#   theme_map() +\n#   theme(legend.position = \"right\") + \n#   coord_equal() + \n#   scale_fill_gradientn(name = \"median age\", colors = terrain.colors(10))",
     "crumbs": [
       "In-class Activities",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Spatial Viz</span>"
