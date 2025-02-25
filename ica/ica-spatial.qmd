@@ -855,19 +855,19 @@ elections_by_counties <- elections_by_counties |>
 ### Exercise 10: Play around! {.unnumbered}
 
 ```{r}
-ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
-  geom_map(map = county_map) +
-  expand_limits(x = county_map$long, y = county_map$lat) +
-  theme_map() +
-  theme(legend.position = "right") + 
-  coord_equal() + 
-  scale_fill_gradientn(name = "median rent", colors = c("white", "lightgreen", "darkgreen"))
-
-ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_age)) +
-  geom_map(map = county_map) +
-  expand_limits(x = county_map$long, y = county_map$lat) +
-  theme_map() +
-  theme(legend.position = "right") + 
-  coord_equal() + 
-  scale_fill_gradientn(name = "median age", colors = terrain.colors(10))
+# ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
+#   geom_map(map = county_map) +
+#   expand_limits(x = county_map$long, y = county_map$lat) +
+#   theme_map() +
+#   theme(legend.position = "right") + 
+#   coord_equal() + 
+#   scale_fill_gradientn(name = "median rent", colors = c("white", "lightgreen", "darkgreen"))
+# 
+# ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_age)) +
+#   geom_map(map = county_map) +
+#   expand_limits(x = county_map$long, y = county_map$lat) +
+#   theme_map() +
+#   theme(legend.position = "right") + 
+#   coord_equal() + 
+#   scale_fill_gradientn(name = "median age", colors = terrain.colors(10))
 ```

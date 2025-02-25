@@ -3,3 +3,22 @@ title: "Quadvariate Viz"
 ---
 
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+library(tidyverse)
+```
+
+
+```{r}
+ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16, size = total_population, color = historical)) +
+  geom_point(alpha = 0.5) +
+  scale_color_manual(values = c("red" = "red", "blue" = "blue", "purple" = "purple")) +
+  scale_size_area() +
+  labs(x = "2016",
+       y = "2020",
+       title = "Republican Margins of Victory",
+       caption = "Point Percentages per County, 2016 and 2020",
+       color = "Historical Result",
+       size = "County Population")
+```

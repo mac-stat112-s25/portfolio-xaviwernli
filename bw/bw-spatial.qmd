@@ -3,3 +3,28 @@ title: "Spatial Viz"
 ---
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r}
+elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
+library(tidyverse)
+```
+
+``` {r fig.width = 8}
+library(socviz)
+data(county_map)
+
+library(RColorBrewer)  # For the color scale
+library(ggthemes) # For theme_map
+elections |> 
+  mutate(county_fips = as.character(county_fips)) |> 
+  mutate(county_fips = 
+           ifelse(nchar(county_fips) == 4, paste0("0", county_fips), county_fips)) |> 
+  ggplot(aes(map_id = county_fips, fill = cut(repub_pct_20, breaks = seq(0, 100, by = 10)))) +
+    geom_map(map = county_map) +
+    scale_fill_manual(values = rev(brewer.pal(10, "RdBu")), name = "% Republican") +
+    expand_limits(x = county_map$long, y = county_map$lat)  + 
+    theme_map() +
+    theme(legend.position = "right") + 
+    coord_equal()
+```
+
