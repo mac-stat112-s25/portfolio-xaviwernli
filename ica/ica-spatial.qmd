@@ -374,15 +374,15 @@ Adjust the code below to make the plot!
 Remove the `#` to run it.
 
 ```{r}
-ggplot(cma_boundaries) + 
-   geom_sf() + 
-   geom_point() +
-     data = starbucks_cma,
-     aes(x = Longitude, y = Latitude),
-     alpha = 0.7,
-     size = 0.2, 
-     color = 'darkgreen') + 
-   theme_map()
+# ggplot(cma_boundaries) + 
+#    geom_sf() + 
+#    geom_point() +
+#      data = starbucks_cma,
+#      aes(x = Longitude, y = Latitude),
+#      alpha = 0.7,
+#      size = 0.2, 
+#      color = 'darkgreen') + 
+#    theme_map()
 ```
 
 ### Exercise 7: Contour maps {.unnumbered}
@@ -639,13 +639,13 @@ ggplot(elections_by_counties, aes(map_id = county_fips, fill = repub_20_categori
 Construct county-level maps of `median_rent` and `median_age`.
 
 ```{r}
-ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
-  geom_map(map = county_map) +
-  scale_fill_viridis(option = "magma", direction = -1) +
-  expand_limits(x = county_map$long, y = county_map$lat) +
-  theme_map() +
-  theme(legend.position = "right") + 
-  coord_equal()
+# ggplot(elections_by_counties, aes(map_id = county_fips, fill = median_rent)) +
+#   geom_map(map = county_map) +
+#   scale_fill_viridis(option = "magma", direction = -1) +
+#   expand_limits(x = county_map$long, y = county_map$lat) +
+#   theme_map() +
+#   theme(legend.position = "right") + 
+#   coord_equal()
 ```
 
 
@@ -668,8 +668,8 @@ Both addresses used between 0 and 450 therms per month.
 There seem to be two types of months -- those with lower use around 50 therms and those with higher use around 300/400 therms.
 
 ```{r}
-ggplot(energy, aes(x = therms, fill = address)) + 
-  geom_density(alpha = 0.5)
+# ggplot(energy, aes(x = therms, fill = address)) + 
+#   geom_density(alpha = 0.5)
 ```
 
 ### Example 2 {.unnumbered}
@@ -678,10 +678,10 @@ Energy use is seasonal, with higher usage in winter months.
 It seems that address a uses slightly more energy.
 
 ```{r}
-ggplot(energy, aes(y = therms, x = date, color = address)) + 
-  geom_point()
-ggplot(energy, aes(y = therms, x = date, color = address)) + 
-  geom_line()
+# ggplot(energy, aes(y = therms, x = date, color = address)) + 
+#   geom_point()
+# ggplot(energy, aes(y = therms, x = date, color = address)) + 
+#   geom_line()
 ```
 
 ### Example 3 {.unnumbered}
@@ -689,14 +689,14 @@ ggplot(energy, aes(y = therms, x = date, color = address)) +
 At both addresses, typical energy use *increased* after renovations.
 
 ```{r}
-ggplot(energy, aes(y = therms, x = renovated)) + 
-  geom_boxplot() + 
-  facet_wrap(~ address)
-
-# A density plot isn't very helpful for comparing typical therms in this example!
-ggplot(energy, aes(x = therms, fill = renovated)) + 
-  geom_density(alpha = 0.5) + 
-  facet_wrap(~ address)
+# ggplot(energy, aes(y = therms, x = renovated)) + 
+#   geom_boxplot() + 
+#   facet_wrap(~ address)
+# 
+# # A density plot isn't very helpful for comparing typical therms in this example!
+# ggplot(energy, aes(x = therms, fill = renovated)) + 
+#   geom_density(alpha = 0.5) + 
+#   facet_wrap(~ address)
 ```
 
 ### Example 4 {.unnumbered}
@@ -704,16 +704,16 @@ ggplot(energy, aes(x = therms, fill = renovated)) +
 lurking variable = outdoor temperature (as reflected by hdd)
 
 ```{r}
-# It happened to be colder outside after renovations (higher hdd)
-ggplot(energy, aes(y = hdd, x = renovated)) + 
-  geom_boxplot() + 
-  facet_wrap(~ address)
-
-# When controlling for outside temps (via hdd), energy use decreased post-renovation
-ggplot(energy, aes(y = therms, x = hdd, color = renovated)) + 
-  geom_point(alpha = 0.5) + 
-  geom_smooth(method = "lm", se = FALSE) + 
-  facet_wrap(~ address)
+# # It happened to be colder outside after renovations (higher hdd)
+# ggplot(energy, aes(y = hdd, x = renovated)) + 
+#   geom_boxplot() + 
+#   facet_wrap(~ address)
+# 
+# # When controlling for outside temps (via hdd), energy use decreased post-renovation
+# ggplot(energy, aes(y = therms, x = hdd, color = renovated)) + 
+#   geom_point(alpha = 0.5) + 
+#   geom_smooth(method = "lm", se = FALSE) + 
+#   facet_wrap(~ address)
 ```
 
 ### Example 5 {.unnumbered}
