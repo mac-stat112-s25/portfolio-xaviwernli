@@ -1,0 +1,7 @@
+---
+title: "imdb_5000_messy_README"
+format: html
+---
+
+#Source = Kaggle
+#Collected by = Kaggle
