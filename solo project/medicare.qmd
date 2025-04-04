@@ -62,10 +62,10 @@ ggplot(data = medicare_2007_2018) +
     panel.grid.major = element_blank()
   ) +
   coord_sf(crs = st_crs(medicare_2007_2018), datum = NA) +
-  labs(title = "Medicare Usage Growth Rate: 2007 - 2018",
-       subtitle = "Medicare Growth Rate vs. Population Growth Rate in Washington Counties: 2007 - 2018",
+  labs(title = "Ratio of Medicare Usage Growth Rate / Population Growth Rate: 2007 - 2018",
+       subtitle = "r = Ratio: When r > 0, medicare usage is growing at a faster rate than population. When r < 0, the medicare usage is declining. Washington Counties: 2007 - 2018",
        caption = "Made by: Xavi Wernli, Source: data.wa.gov, geo.wa.gov",
-       fill = "Percent Increase"
+       fill = "Ratio Percent: 0 = no change (ratio is not significant)"
        )
 ```
 *Across all of Washington, medicare usage grew at a faster rate than population. This demonstrates the growing demand of medicare across all regions of the state. Some counties, such as Ferry County in the Northeast corner of the state, has experienced population loss and an increase in medicare, a testament to the increasing vulnerability of rural counties in the U.S. Medicare as a measure of vulnerability specifically measures the growing dependency ratio in rural counties as young people migrate to urban areas.* 
