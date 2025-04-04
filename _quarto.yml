@@ -30,6 +30,7 @@ book:
       - bw/bw-tri.qmd
       - bw/bw-quad.qmd
       - bw/bw-spatial.qmd
+      - bw/bw-medicare.qmd
 
     - part: "In-class Activities"
       chapters: 

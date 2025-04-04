@@ -1,0 +1,73 @@
+---
+title: "medicare"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(mdsr)
+library(dplyr)
+library(viridis)
+library(viridisLite)
+library(sf)
+library(ggplot2)
+
+medicare <- read_csv("Medicare_Beneficiary_Enrollment_and_Demographics__Washington_State_and_Counties__2007-2018_20250402.csv")
+
+population <- read_csv("WAOFM_-_April_1_-_Population_by_State__County_and_City__1990_to_Present_20250403.csv")
+
+counties <- st_read("WA_County_Boundaries.geojson")
+
+counties <- counties %>%
+  rename(`State and County FIPS Code` = JURISDICT_FIPS_DESG_CD) %>% 
+  mutate(`State and County FIPS Code` = as.character(`State and County FIPS Code`))
+
+medicare <- medicare %>% 
+  full_join(counties, by = "State and County FIPS Code")
+```
+
+```{r}
+county_pop <- population %>% 
+  filter(FILTER == 1) %>% 
+  select(COUNTY, POP_2007, POP_2018) %>% 
+  rename(County = COUNTY)
+  
+medicare_2007_2018 <- medicare %>% 
+  filter(Year %in% c(2007, 2018)) %>% 
+  group_by(`State and County FIPS Code`) %>% 
+  summarize(
+    medicare_2007 = sum(`Beneficiaries with Part A and Part B`[Year == 2007], na.rm = TRUE),
+    medicare_2018 = sum(`Beneficiaries with Part A and Part B`[Year == 2018], na.rm = TRUE)
+  ) %>%
+  mutate(medicare_change = (medicare_2018 / medicare_2007))
+
+medicare_2007_2018 <- medicare_2007_2018 %>% 
+  left_join(medicare %>% select(`State and County FIPS Code`, geometry, County), by = "State and County FIPS Code") %>% 
+  left_join(county_pop, by = "County")
+
+medicare_2007_2018 <- medicare_2007_2018 %>% 
+  mutate(population_change = (POP_2018 / POP_2007)) %>% 
+  mutate(medicare_pop_change = (medicare_change / population_change) - 1)
+```
+
+```{r fig.height = 8}
+ggplot(data = medicare_2007_2018) +
+  geom_sf(aes(geometry = geometry, fill = medicare_pop_change), color = NA) +
+  scale_fill_viridis(option = "magma", direction = -1) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_blank()
+  ) +
+  coord_sf(crs = st_crs(medicare_2007_2018), datum = NA) +
+  labs(title = "Medicare Usage Growth Rate: 2007 - 2018",
+       subtitle = "Medicare Growth Rate vs. Population Growth Rate in Washington Counties: 2007 - 2018",
+       caption = "Made by: Xavi Wernli, Source: data.wa.gov, geo.wa.gov",
+       fill = "Percent Increase"
+       )
+```
+*Across all of Washington, medicare usage grew at a faster rate than population. This demonstrates the growing demand of medicare across all regions of the state. Some counties, such as Ferry County in the Northeast corner of the state, has experienced population loss and an increase in medicare, a testament to the increasing vulnerability of rural counties in the U.S. Medicare as a measure of vulnerability specifically measures the growing dependency ratio in rural counties as young people migrate to urban areas.* 
+
+*To expand this project, I would drop the scale down to the zip code level and look at one metropolitan area, such as Seattle, or include income bracket as a variable.*
