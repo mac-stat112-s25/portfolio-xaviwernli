@@ -67,4 +67,5 @@ ggplot(data = medicare_2007_2018) +
        fill = "Percent Increase"
        )
 ```
+Add white boundary, and source, author, hide code, etc.
 *Across all of Washington, medicare usage grew at a faster rate than population. This demonstrates the growing demand of medicare across all regions of the state. To expand this project, I would drop the scale down to the zipcode level and look at one metropolitan area, such as Seattle, or include income bracket as a variable.*

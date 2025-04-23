@@ -2,7 +2,7 @@
 title: "Quadvariate Viz"
 ---
 
-Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+Hide the code, hide the error message, fix axes, add alt text (description), and fix caption (source of data, author of viz, date created)
 
 ```{r}
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
