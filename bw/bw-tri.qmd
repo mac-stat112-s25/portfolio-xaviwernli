@@ -1,8 +1,10 @@
 ---
 title: "Trivariate Viz"
+echo: false
+error: false
+warning: false
+message: false
 ---
-
-Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
 ```{r}
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
@@ -14,8 +16,8 @@ library(tidyverse)
 ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16, color = historical)) +
   geom_point(alpha = 0.3) +
   scale_color_manual(values = c("red" = "red", "blue" = "blue", "purple" = "purple")) +
-  labs(x = "2016",
-       y = "2020",
+  labs(x = "Republican Point Percentage in 2016",
+       y = "Republican Point Percentage in 2020",
        title = "Republican Margins of Victory",
        caption = "Point Percentages per County, 2016 and 2020",
        color = "Historical Result")

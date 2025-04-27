@@ -1,6 +1,10 @@
 ---
-title: "medicare"
+title: "Solo Project"
 format: html
+echo: false
+error: false
+warning: false
+message: false
 ---
 
 ```{r}
@@ -16,7 +20,9 @@ medicare <- read_csv("Medicare_Beneficiary_Enrollment_and_Demographics__Washingt
 
 population <- read_csv("WAOFM_-_April_1_-_Population_by_State__County_and_City__1990_to_Present_20250403.csv")
 
-counties <- st_read("WA_County_Boundaries.geojson")
+
+counties <- st_read("C:/Users/xavie/OneDrive/Documents/GitHub/portfolio-xaviwernli/bw/WA_County_Boundaries.geojson", quiet = TRUE)
+
 
 counties <- counties %>%
   rename(`State and County FIPS Code` = JURISDICT_FIPS_DESG_CD) %>% 
@@ -52,7 +58,7 @@ medicare_2007_2018 <- medicare_2007_2018 %>%
 
 ```{r fig.height = 6}
 ggplot(data = medicare_2007_2018) +
-  geom_sf(aes(geometry = geometry, fill = medicare_pop_change), color = NA) +
+  geom_sf(aes(geometry = geometry, fill = medicare_pop_change), color = "white") +
   scale_fill_viridis(option = "magma", direction = -1) +
   theme_minimal() +
   theme(
@@ -62,10 +68,9 @@ ggplot(data = medicare_2007_2018) +
     panel.grid.major = element_blank()
   ) +
   coord_sf(crs = st_crs(medicare_2007_2018), datum = NA) +
-  labs(title = "Medicare Usage Growth Rate",
-       caption = "Medicare Growth Rate vs. Population Growth Rate in Washington Counties: 2007 - 2018",
+  labs(title = "Medicare Usage Growth Rate vs. Population Growth Rate in Washington Counties: 2007 - 2018",
+       caption = "Author: Xavi Wernli, Data: Kaggle",
        fill = "Percent Increase"
        )
 ```
-Add white boundary, and source, author, hide code, etc.
-*Across all of Washington, medicare usage grew at a faster rate than population. This demonstrates the growing demand of medicare across all regions of the state. To expand this project, I would drop the scale down to the zipcode level and look at one metropolitan area, such as Seattle, or include income bracket as a variable.*
+Across all of Washington, medicare usage grew at a faster rate than population. This demonstrates the growing demand of medicare across all regions of the state. To expand this project, I would drop the scale down to the zipcode level and look at one metropolitan area, such as Seattle, or include income bracket as a variable.

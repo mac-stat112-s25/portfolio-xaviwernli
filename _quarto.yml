@@ -38,6 +38,11 @@ book:
       - ica/ica-bi.qmd
       - ica/ica-multi.qmd
       - ica/ica-spatial.qmd
+      
+    - part: "Exam"
+      chapters: 
+       - exam/exam-1.qmd
+       - exam/exam-2.qmd
 
 format:
   html:

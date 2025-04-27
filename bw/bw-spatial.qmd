@@ -1,8 +1,11 @@
 ---
 title: "Spatial Viz"
+echo: false
+error: false
+warning: false
+message: false
 ---
 
-Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
 ```{r}
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")

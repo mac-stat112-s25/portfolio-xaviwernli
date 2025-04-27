@@ -1,8 +1,11 @@
 ---
 title: "Bivariate Viz"
+echo: false
+error: false
+warning: false
+message: false
 ---
 
-Use this file to generate a professional looking **bivariate** visualization.  The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.
 
 ```{r}
 elections <- read.csv("https://mac-stat.github.io/data/election_2020_county.csv")
@@ -14,8 +17,8 @@ library(tidyverse)
 ggplot(elections, aes(y = repub_pct_20, x = repub_pct_16)) +
   geom_point() +
   geom_smooth(method = "lm") +
-  labs(x = "2016",
-       y = "2020",
+  labs(x = "Republican Point Percentage in 2016",
+       y = "Republican Point Percentage in 2020",
        title = "Republican Margins of Victory",
        caption = "Point Percentages per County, 2016 and 2020")
 ```

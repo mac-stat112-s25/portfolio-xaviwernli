@@ -1,0 +1,48 @@
+---
+title: "Exam 1"
+format: html
+---
+
+```{r}
+install.packages("tidytuesdayR")
+install.packages("tidyverse")
+
+library(tidytuesdayR)
+library(tidyverse)
+
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+```
+
+```{r}
+head(fc)
+dim(fc)
+str(fc)
+```
+
+```{r}
+# Country
+ggplot(fc, aes(x = country)) +
+  geom_bar()
+# Food item
+ggplot(fc, aes(x = food_category)) +
+  geom_bar()
+# Consumption
+ggplot(fc, aes(y = consumption)) +
+  geom_histogram()
+```
+
+Overall food consumption / food category
+*This would be a simple bar graph*
+Overall food consumption / country
+*This would also be a simple bar graph*
+
+For answering question 9, I would select a stacked bar chart.
+  This chart would have axes labels, alt text, a caption, a legend, and a title.
+  
+Some further questions I have are
+1. How does world region of affect consumption?
+2. How does a country's size affect consumption?
+3. How are CO2 emmissions related to food consumption?
+4. How are CO2 emmissions related to food category?
+
