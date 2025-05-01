@@ -3,3 +3,53 @@ title: "Exam 2"
 format: html
 ---
 
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(rnaturalearth)
+library(sf)
+
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+```
+
+```{r}
+str(fc)
+head(fc)
+```
+
+```{r}
+fcc <- fc %>% 
+  mutate(
+    food_category = ifelse(food_category == "Lamb & Goat", "Lamb", food_category),
+    food_category = ifelse(food_category == "Milk - inc. cheese", "Dairy", food_category),
+    food_category = ifelse(food_category == "Wheat and Wheat Products", "Wheat", food_category),
+    food_category = ifelse(food_category == "Nuts inc. Peanut Butter", "Nuts", food_category),
+    ) %>% 
+  arrange(desc(consumption))
+```
+
+```{r}
+ne_countries(return = "sf") %>% 
+  select(name, geometry) %>% 
+  mutate(name = ifelse(name == "United States of America", "USA", name)) %>%
+  mutate(name = ifelse(name == "Bosnia and Herz", "Bosnia and Herzegovina", name)) %>% 
+  mutate(name = ifelse(name == "Czechia", "Czech Republic", name)) %>% 
+  mutate(name = ifelse(name == "Taiwan", "Taiwan. ROC", name)) %>% 
+  left_join(
+    fcc %>% 
+      select (-co2_emmission) %>% 
+      group_by(food_category) %>% 
+      mutate(consumption = (consumption - mean(consumption))/sd(consumption)),
+    join_by(name == country)) %>% 
+  pivot_wider(names_from = food_category, values_from = consumption) %>% 
+  select(-"NA") %>% 
+  pivot_longer(cols = c(-name, -geometry),
+               names_to = "food_category",
+               values_to = "consumption") %>% 
+  ggplot() +
+  geom_sf(aes(fill = consumption)) +
+  facet_wrap(~food_category) +
+  theme(legend.position = "bottom")
+```
+
